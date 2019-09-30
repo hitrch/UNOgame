@@ -4,8 +4,8 @@
 #
 
 ### Исполнители
-[Дуда Владимир ИС-73](https://t.me/dalor_dandy)
-[Палий Владислав ИС-72](https://t.me/Hitrch)
+[Дуда Владимир ИС-73](https://t.me/dalor_dandy), 
+[Палий Владислав ИС-72](https://t.me/Hitrch), 
 [Шилюк Девид ИС-73](https://t.me/devich)
 
 #
