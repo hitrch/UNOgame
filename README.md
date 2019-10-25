@@ -29,6 +29,6 @@
 #
 
 ### Интересно подумать
-magic uno:<br />
+magic uno:
 [https://www.pagat.com/invented/magic_uno.html ](https://www.pagat.com/invented/magic_uno.html)<br />
 [https://steamcommunity.com/sharedfiles/filedetails/?id=1797627811](https://steamcommunity.com/sharedfiles/filedetails/?id=1797627811)
