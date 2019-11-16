@@ -1,6 +1,9 @@
 {
-  "name": "unogame",
-  "scripts": {
-    "heroku-postbuild": "ng build --prod"
-  }
+  "install": "npm run install:client && npm run install:server",
+  "install:client": "(cd ./client && npm install)",
+  "install:server": "(cd ./server && npm install)",
+  "start": "npm run start:dev",
+  "start:dev": "npm run start:client & npm run start:server",
+  "start:client": "(cd ./backend && npm run start)",
+  "start:server": "(cd ./frontend && npm run start)"
 }
