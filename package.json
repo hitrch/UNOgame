@@ -1,9 +1,9 @@
 {
   "install": "npm run install:client && npm run install:server",
-  "install:client": "(cd ./client && npm install)",
-  "install:server": "(cd ./server && npm install)",
+  "install:client": "(cd ./frontend && npm install)",
+  "install:server": "(cd ./backend && npm install)",
   "start": "npm run start:dev",
   "start:dev": "npm run start:client & npm run start:server",
-  "start:client": "(cd ./backend && npm run start)",
-  "start:server": "(cd ./frontend && npm run start)"
+  "start:client": "(cd ./frontend && npm run start)",
+  "start:server": "(cd ./backend && npm run start)"
 }
