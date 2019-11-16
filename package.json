@@ -1,7 +1,7 @@
 {
   "install": "npm run install:client && npm run install:server",
-  "install:client": "(cd ./frontend && npm install)",
-  "install:server": "(cd ./backend && npm install)",
-  "start": "cd ./frontend && npm run start",
-  "heroku-postbuild": "cd ./frontend && npm install && npm run build"
+  "install:client": "(cd frontend && npm install)",
+  "install:server": "(cd backend && npm install)",
+  "start": "cd frontend && npm run start",
+  "heroku-postbuild": "cd frontend && npm install && npm run build"
 }
