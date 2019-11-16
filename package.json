@@ -1,0 +1,6 @@
+{
+  "name": "unogame",
+  "scripts": {
+    "heroku-postbuild": "ng build --prod"
+  }
+}
