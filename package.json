@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "backend/bin/www.js",
   "scripts": {
-    "start": "cd backend && npm run start",
-    "heroku-postbuild": "cd frontend && npm install --only=dev && npm install && npm run build"
+    "install": "(cd backend && npm i) & (cd frontend && npm i)",
+    "heroku-postbuild": "cd frontend && npm run build-prod && mv dist/frontend ../backend/",
+    "start": "if [ \"$NODE_ENV\" == \"production\" ]; then cd backend && npm run start-prod; else cd backend && npm start & (cd frontend && npm start); fi"
   }
 }
