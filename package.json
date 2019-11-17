@@ -1,0 +1,16 @@
+{
+  "name": "unogame",
+  "version": "1.0.0",
+  "main": "./backend/bin/www.js",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "heroku-postbuild": "cd frontend && npm install --only=dev && npm install && npm run build && npm start"
+  },
+  "engines": {
+    "node": "10.16.0",
+    "npm": "6.9.0"
+  },
+  "dependencies": {
+    "react": "^16.10.2"
+  }
+}
