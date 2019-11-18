@@ -34,7 +34,7 @@ class App extends Component {
         const App = () => (
             <div>
                 <Switch>
-                    <Route exact path='/' component={Login}/>
+                    <Route exact path='/' component={Home}/>
                     <Route path='/list' component={List}/>
                 </Switch>
             </div>
