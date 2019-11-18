@@ -9,7 +9,7 @@ function Login() {
     };
 
     render(
-            <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="UNOgBot"/>, <Home/>,
+            <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="UNOgBot"/>,
                 document.getElementById('telegramButton')
         );
 }
