@@ -3,17 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Home from '../pages/Home';
 import List from '../pages/List';
-import ReactDOM from 'react-dom';
-import TelegramLoginButton from 'react-telegram-login';
-
-const handleTelegramResponse = response => {
-    console.log(response);
-};
-
-ReactDOM.render(
-    <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="UNOgBot" />,
-    document.getElementById('telegramButton')
-);
 
 
 
