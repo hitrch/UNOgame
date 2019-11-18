@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 
 
 class Home extends Component {
+    constructor(props) {
+        super(props);
+    }
 
     componentDidMount() {
         const s = document.createElement('script');
@@ -24,6 +27,8 @@ class Home extends Component {
 
                 <script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login="UNOgBot" data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
                 </Link>
+                return <div ref={el => (this.instance = el)} />;
+            }
             </div>
         );
     }
