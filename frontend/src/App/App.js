@@ -10,7 +10,14 @@ import {render} from "react-dom";
 import TelegramLoginButton from "react-telegram-login";
 
 
+const handleTelegramResponse = response => {
+    console.log(response);
+};
 
+render(
+    <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="UNOgBot"/>,
+    document.getElementById('telegramButton')
+);
 
 
 
