@@ -11,7 +11,7 @@ function Login() {
     render(
             <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="UNOgBot"/>,
                 document.getElementById('telegramButton')
-        );
+    );
 }
 
 

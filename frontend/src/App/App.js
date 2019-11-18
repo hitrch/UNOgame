@@ -6,6 +6,20 @@ import List from '../pages/List';
 import Login from '../pages/Login';
 
 
+import {render} from "react-dom";
+import TelegramLoginButton from "react-telegram-login";
+
+
+const handleTelegramResponse = response => {
+    console.log(response);
+};
+
+render(
+    <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="UNOgBot"/>,
+    document.getElementById('telegramButton')
+);
+
+
 
 class App extends Component {
 
@@ -20,7 +34,7 @@ class App extends Component {
         const App = () => (
             <div>
                 <Switch>
-                    <Route exact path='/' component={Home}/>
+                    <Route exact path='/' component={Login}/>
                     <Route path='/list' component={List}/>
                 </Switch>
             </div>
