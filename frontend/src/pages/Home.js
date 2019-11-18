@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import TelegramLoginButton from 'react-telegram-login';
 
+
+import { render } from 'react-dom';
+
 const handleTelegramResponse = response => {
     console.log(response);
 };
