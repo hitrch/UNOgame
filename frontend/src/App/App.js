@@ -7,11 +7,6 @@ import ReactDOM from 'react-dom';
 import TelegramLoginButton from 'react-telegram-login';
 
 const handleTelegramResponse = response => {
-    ReactDOM.render((
-        <h1>
-            HEllo response
-        </h1>
-    ), document.getElementById('root'));
     console.log(response);
 };
 
