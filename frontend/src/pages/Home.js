@@ -7,15 +7,7 @@ class Home extends Component {
         super(props);
     }
 
-    componentDidMount() {
-        const s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.async = true;
-        s.innerHTML = "function onTelegramAuth(user) {\n" +
-            "    alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');\n" +
-            "  }";
-        this.instance.appendChild(s);
-    }
+
 
     render() {
         return (
