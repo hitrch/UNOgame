@@ -24,8 +24,6 @@ class Home extends Component {
                     <h6>
                         Welcome to UNOgame
                     </h6>
-
-                <script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login="UNOgBot" data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
                 <div ref={el => (this.instance = el)} />
             </div>
         );
