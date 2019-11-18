@@ -11,7 +11,10 @@ const handleTelegramResponse = response => {
     console.log(response);
 };
 
-
+render(
+    <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="UNOgBot" />,
+    document.getElementById('telegramButton')
+);
 
 class Home extends Component {
     constructor(props) {
