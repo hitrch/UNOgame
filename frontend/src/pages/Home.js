@@ -1,20 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import ReactDOM from 'react-dom';
-import TelegramLoginButton from 'react-telegram-login';
 
-
-import { render } from 'react-dom';
-
-const handleTelegramResponse = response => {
-    console.log(response);
-};
-
-render(
-    <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="UNOgBot" />,
-    document.getElementById('telegramButton')
-);
 
 class Home extends Component {
     constructor(props) {
