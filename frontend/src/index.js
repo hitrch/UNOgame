@@ -7,19 +7,6 @@ import App from './App/App';
 import TelegramLoginButton from 'react-telegram-login';
 
 
-function onTelegramAuth(user)  {
-    console.log(user);
-}
-
-const handleTelegramResponse = response => {
-    console.log(response);
-};
-
-render(
-    <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="OdauBot" />,
-    document.getElementById('telegramButton')
-);
-
 
 render((
     <BrowserRouter>
