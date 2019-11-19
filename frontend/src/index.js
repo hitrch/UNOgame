@@ -2,20 +2,20 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-
 import './index.css';
 import App from './App/App';
-
-
-
-import ReactDOM from 'react-dom';
 import TelegramLoginButton from 'react-telegram-login';
+
+
+function onTelegramAuth(user)  {
+    console.log(user);
+}
 
 const handleTelegramResponse = response => {
     console.log(response);
 };
 
-ReactDOM.render(
+render(
     <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="OdauBot" />,
     document.getElementById('telegramButton')
 );
