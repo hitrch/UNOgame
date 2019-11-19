@@ -13,6 +13,10 @@ code {
     monospace;
 }
 
+#root{
+  margin: 0;
+}
+
 #login{
   text-align: right;
   margin-right: auto;

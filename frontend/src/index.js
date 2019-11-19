@@ -4,6 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
 import App from './App/App';
+import Login from './pages/Login';
+
+render((
+    <Login />
+), document.getElementById('root'));
 
 render((
     <BrowserRouter>
