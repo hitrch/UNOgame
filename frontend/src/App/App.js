@@ -15,7 +15,7 @@ class App extends Component {
             "            nonce:        'ab2df83746a87d2f3bd6...', // place nonce here\n" +
             "            callback_url: 'https://unog.herokuapp.com/callback/' // place callback url here\n" +
             "        });";
-        this.instance.appendChild(s);
+        document.body.appendChild(s);
     }
 
     render() {
