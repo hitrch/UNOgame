@@ -12,14 +12,21 @@ class Login extends Component {
         console.log(user);
     }
 
-    render() {
-        const Log = () => (
-            <script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login="UNOgBot" data-size="small" data-onauth={this.onTelegramAuth(this.user)} data-request-access="write"/>
-        );
-        return (
-            <Log/>
-        );
+    componentDidMount() {
+        const s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.innerHTML = "function onTelegramAuth(user) {\n" +
+            "    alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');\n" +
+            "  }";
+        this.instance.appendChild(s);
     }
+
+    render() {
+        return <div ref={el => (this.instance = el)} />;
+    }
+
+
 }
 
 export default Login;
