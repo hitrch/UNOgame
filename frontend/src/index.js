@@ -8,7 +8,7 @@ import Login from './pages/Login';
 
 render((
     <Login />
-), document.getElementById('root'));
+), document.getElementById('login'));
 
 render((
     <BrowserRouter>
