@@ -7,6 +7,17 @@ import App from './App/App';
 import Login from './pages/Login';
 
 
+import ReactDOM from 'react-dom';
+import TelegramLoginButton from 'react-telegram-login';
+
+const handleTelegramResponse = response => {
+    console.log(response);
+};
+
+ReactDOM.render(
+    <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="UNOgBot" />,
+    document.getElementById('telegramButton')
+);
 
 render((
     <BrowserRouter>
