@@ -6,9 +6,7 @@ import './index.css';
 import App from './App/App';
 import Login from './pages/Login';
 
-render((
-    <Login />
-), document.getElementById('login'));
+
 
 render((
     <BrowserRouter>
