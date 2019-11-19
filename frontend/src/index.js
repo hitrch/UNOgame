@@ -6,6 +6,21 @@ import * as serviceWorker from './serviceWorker';
 import './index.css';
 import App from './App/App';
 
+
+
+import ReactDOM from 'react-dom';
+import TelegramLoginButton from 'react-telegram-login';
+
+const handleTelegramResponse = response => {
+    console.log(response);
+};
+
+ReactDOM.render(
+    <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="OdauBot" />,
+    document.getElementById('telegramButton')
+);
+
+
 render((
     <BrowserRouter>
         <App/>
