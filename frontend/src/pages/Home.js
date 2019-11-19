@@ -15,7 +15,7 @@ class Home extends Component {
         s.innerHTML = "function onTelegramAuth(user) {\n" +
             "    alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');\n" +
             "  }";
-        document.body.appendChild(s);
+        document.getElementById('login').appendChild(s);
     }
 
     render() {
