@@ -20,7 +20,7 @@ class Login extends Component {
 
     render() {
         return(
-            <div id = "telegramButton"/>
+            <div id = "telegramButton" />
         );
     }
 }
