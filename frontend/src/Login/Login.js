@@ -20,7 +20,10 @@ class Login extends Component {
 
     render() {
         return(
-            <div id = "telegramButton" />
+            <div>
+                <div id = "greetings">Welcome to UNOgame</div>
+                <div id = "telegramButton" />
+            </div>
         );
     }
 }
