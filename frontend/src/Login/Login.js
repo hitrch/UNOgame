@@ -8,7 +8,6 @@ import TelegramLoginButton from 'react-telegram-login';
 class Login extends Component {
 
     componentDidMount() {
-        console.log(this.handleTelegramResponse());
         ReactDOM.render(
             <TelegramLoginButton dataOnauth={this.handleTelegramResponse} botName="UNOgBot" />,
             document.getElementById('telegramButton')

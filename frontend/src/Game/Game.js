@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import List from '../List/List';
 
 
 
@@ -11,8 +11,8 @@ class Game extends Component {
 
     render() {
         const Body = () => (
-            <div>
-                фффффф
+            <div id = {'list'}>
+                <List/>
             </div>
         );
         return(
