@@ -2,13 +2,18 @@
     float: right;
     width: 15%;
     background: dimgray;
+    height: 100%;
 }
 
 #greetings{
     text-align: center;
     vertical-align: middle;
-    height: 40px;
+    height: 100%;
     width: 85%;
     display: inline-block;
     background: dimgray;
+}
+
+#header{
+    height: 6%;
 }

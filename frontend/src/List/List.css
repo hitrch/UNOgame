@@ -1,2 +1,8 @@
 #list{
+    margin: 0;
+    width: 20%;
+    height: 100%;
+    border-right: 1px solid #000;
+    display: inline-block;
+    vertical-align: top;
 }

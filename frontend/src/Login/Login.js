@@ -20,7 +20,7 @@ class Login extends Component {
 
     render() {
         return(
-            <div>
+            <div id = {'header'}>
                 <div id = "greetings">Welcome to UNOgame</div>
                 <div id = "telegramButton" />
             </div>

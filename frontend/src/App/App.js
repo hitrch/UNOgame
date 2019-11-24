@@ -4,10 +4,9 @@ import Login from '../Login/Login'
 import Game from '../Game/Game'
 
 class App extends Component {
-
     render() {
         const App = () => (
-            <div>
+            <div id = {'root'}>
                 <Login/>
                 <Game/>
             </div>
