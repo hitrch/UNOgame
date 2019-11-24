@@ -1,0 +1,46 @@
+version: '3'
+services:
+  envoy:
+    build:
+      context: envoy/
+      dockerfile: envoy.Dockerfile
+    ports:
+      - '8080:8080'
+      - '9901:9901'
+    networks:
+      - server-net
+  server:
+    build:
+      context: .
+      dockerfile: server/server.Dockerfile
+    ports:
+      - '9090:9090'
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - './server:/server'
+      - '/server/node_modules'
+      - './protos:/server/protos'
+    networks:
+      - server-net
+  client:
+    build:
+      context: .
+      dockerfile: client/client.Dockerfile
+    volumes:
+      - './client:/client'
+      - '/client/node_modules'
+      - './protos:/client/src/protos'
+    depends_on:
+      - server
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - "3000:3000"
+    networks:
+      - server-net
+
+networks:
+  server-net:
