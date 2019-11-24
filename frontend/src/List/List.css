@@ -6,3 +6,20 @@
     display: inline-block;
     vertical-align: top;
 }
+
+#newGame{
+    float: right;
+}
+
+#refresh{
+    float:left;
+    width:85%;
+}
+
+#buttons{
+    width: 100%;
+}
+
+#chats{
+    width: 100%;
+}
