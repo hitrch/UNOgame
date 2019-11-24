@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Login from '../Login/Login'
+import Game from '../Game/Game'
 
 class App extends Component {
 
@@ -9,15 +9,11 @@ class App extends Component {
         const App = () => (
             <div>
                 <Login/>
-                <Switch>
-
-                </Switch>
+                <Game/>
             </div>
         );
         return (
-            <Switch>
-                <App/>
-            </Switch>
+            <App/>
         );
     }
 }
