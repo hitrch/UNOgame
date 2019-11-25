@@ -13,6 +13,7 @@ static_resources:
       - name: envoy.http_connection_manager
         config:
           codec_type: auto
+          delayed_close_timeout: 0.1s
           stat_prefix: ingress_http
           route_config:
             name: local_route
@@ -21,9 +22,7 @@ static_resources:
               domains: ["*"]
               routes:
               - match: { prefix: "/" }
-                route:
-                  cluster: greeter_service
-                  max_grpc_timeout: 0s
+                route: { cluster: "greeter_service", max_grpc_timeout: 0s }
               cors:
                 allow_origin: ["*"]
                 allow_methods: GET, PUT, DELETE, POST, OPTIONS
@@ -33,7 +32,9 @@ static_resources:
           http_filters:
           - name: envoy.grpc_web
           - name: envoy.cors
-          - name: envoy.router
+          - name: envoy.router   
+          # common_http_protocol_options: { max_connection_duration: 300s, idle_timeout: 0s }
+          stream_idle_timeout: 0s
   clusters:
   - name: greeter_service
     connect_timeout: 0.25s

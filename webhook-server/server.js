@@ -21,12 +21,14 @@ const requestHandler = (request, response) => {
     // channel.on("data", (message)=> 
     // {
     //   console.log(message.user);});
+    response.end();
 }
 
 const server = http.createServer(requestHandler)
 server.listen(port, () => {
 
-    // make a request
+  for(let i = 0; i<30; i++)
+  {
     const options = {
       port: 1337,
       host: '127.0.0.1',
@@ -34,6 +36,9 @@ server.listen(port, () => {
 
     const req = http.request(options);
     req.end();
+  }
+    // make a request
+    
     
   })
 

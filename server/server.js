@@ -1,3 +1,4 @@
+
 var PROTO_PATH =  "./protos/helloworld.proto";
 var grpc = require('grpc');
 var fs = require("fs");
@@ -13,11 +14,17 @@ var packageDefinition = protoLoader.loadSync(
 var protoDescriptor = grpc.loadPackageDefinition(packageDefinition);
 var chat = protoDescriptor.chat;
 
-let users = [];
- let message = [];
+let call2;
+ let users = [];
 // Receive message from client joining
 function doJoin(call, callback) {
   users.push(call);
+  call.on('cancelled',(call)=>
+  {
+    console.log('heh(')
+    users = users.filter(user=>user!==call)
+  })
+  console.log('nice')
   notifyChat({ user: "Server3", text: "n ..." });
 }
  
@@ -25,16 +32,18 @@ function doJoin(call, callback) {
 function doSend(call, callback) {
   console.log(call.request);
   notifyChat(call.request);
+  callback(null,'nice')
 }
  
 // Send message to all connected clients
 function notifyChat(message) {
+ // console.log("Length ", users.length);
   fs.appendFile('message.txt',  `${JSON.stringify(message)}\n`, (err) => {
     if (err) throw err;
     console.log('Logged!');
   });
-  users.forEach(user => {
-    user.write(message);
+  users.forEach(element => {element.write(message);
+    
   });
 }
 
@@ -52,3 +61,6 @@ if (require.main === module) {
 }
 
 exports.getServer = getServer;
+
+ 
+

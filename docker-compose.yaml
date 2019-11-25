@@ -1,15 +1,6 @@
 version: '3'
 services:
-  envoy:
-    build:
-      context: envoy/
-      dockerfile: envoy.Dockerfile
-    ports:
-      - '8080:8080'
-      - '9901:9901'
-    networks:
-      - server-net
-  server:
+  node-server:
     build:
       context: .
       dockerfile: server/server.Dockerfile
@@ -24,6 +15,17 @@ services:
       - './protos:/server/protos'
     networks:
       - server-net
+  envoy:
+    build:
+      context: envoy/
+      dockerfile: envoy.Dockerfile
+    ports:
+      - '8080:8080'
+      - '9901:9901'
+    links:
+      - node-server
+    networks:
+      - server-net
   client:
     build:
       context: .
@@ -33,7 +35,7 @@ services:
       - '/client/node_modules'
       - './protos:/client/src/protos'
     depends_on:
-      - server
+      - node-server
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
@@ -41,6 +43,5 @@ services:
       - "3000:3000"
     networks:
       - server-net
-
 networks:
   server-net:
