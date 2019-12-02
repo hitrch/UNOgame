@@ -15,5 +15,6 @@
 }
 
 #header{
-    height: 6%;
+    outline: black 1px solid;
+    height: 6%
 }

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './Chat.css';
+import Playground from './Playground/Playground'
+import Players from './Players/Players'
+import Cards from "./Cards/Cards";
 
 class Chat extends Component {
     componentDidMount() {
@@ -7,8 +10,10 @@ class Chat extends Component {
 
     render() {
         return(
-            <div>
-                here should be game chat
+            <div id = {'innerChat'}>
+                <Playground/>
+                <Players/>
+                <Cards/>
             </div>
         );
     }

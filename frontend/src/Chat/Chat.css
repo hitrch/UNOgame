@@ -1,5 +1,30 @@
 #chat{
-    width: 79.5%;
+    width: 80%;
     height: 100%;
     display: inline-block;
+}
+
+#innerChat{
+    width: 100%;
+    height: 100%;
+}
+
+#cards{
+    float:bottom;
+    height: 20%;
+    outline: black 1px solid;
+}
+
+#playground{
+    width: 80%;
+    height: 80%;
+    display: inline-block;
+    outline: black 1px solid;
+}
+
+#players{
+    width: 20%;
+    height: 80%;
+    display: inline-block;
+    outline: black 1px solid;
 }
