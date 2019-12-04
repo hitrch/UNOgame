@@ -36,9 +36,6 @@ class Login extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-    };
-}
 
-export default connect(mapStateToProps)(Login);
+
+export default Login;
