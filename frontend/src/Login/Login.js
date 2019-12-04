@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import TelegramLoginButton from 'react-telegram-login';
 import autoBind from 'react-autobind';
 import * as loginActions from '../store/login/actions'
+import { connect } from 'react-redux';
 
 class Login extends Component {
 
@@ -20,7 +21,8 @@ class Login extends Component {
     }
 
     handleTelegramResponse = response => {
-        this.props.dispatch(loginActions.logIn());
+        console.log(this);
+        //this.props.dispatch(loginActions.logIn());
         console.log(response);
     };
 
@@ -34,4 +36,9 @@ class Login extends Component {
     }
 }
 
-export default Login;
+function mapStateToProps(state) {
+    return {
+    };
+}
+
+export default connect(mapStateToProps)(Login);
