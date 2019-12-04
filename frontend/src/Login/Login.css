@@ -12,9 +12,11 @@
     width: 85%;
     display: inline-block;
     background: dimgray;
+    float: left;
 }
 
 #header{
     outline: black 1px solid;
-    height: 6%
+    height: 6%;
+    overflow: hidden;
 }
