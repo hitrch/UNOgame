@@ -21,8 +21,7 @@ class Login extends Component {
     }
 
     handleTelegramResponse = response => {
-        console.log(this);
-        //this.props.dispatch(loginActions.logIn());
+        this.props.dispatch(loginActions.logIn());
         console.log(response);
     };
 
@@ -36,6 +35,9 @@ class Login extends Component {
     }
 }
 
+function mapStateToProps(state) {
+    return {
+    };
+}
 
-
-export default Login;
+export default connect(mapStateToProps)(Login);
