@@ -7,6 +7,7 @@
 }
 
 #greetings{
+    padding-top: 5px;
     text-align: center;
     background: dimgray;
     color: #09d3ac;
@@ -16,7 +17,7 @@
 
 #form{
     outline: black 1px solid;
-    width: 300px;
+    width: 400px;
     height: 100px;
     margin-left: auto;
     margin-right: auto;
