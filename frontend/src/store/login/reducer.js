@@ -11,7 +11,7 @@ export default function reduce(state = initialState, action = {}) {
 
     switch (action.type) {
         case types.LOGGED_IN: {
-            console.log(action);
+            console.log(action.user);
             return state.merge({
                 Logged: true
             });

@@ -21,8 +21,7 @@ class Login extends Component {
     }
 
     handleTelegramResponse = response => {
-        this.props.dispatch(loginActions.logIn());
-        console.log(response);
+        this.props.dispatch(loginActions.logIn(response));
     };
 
     render() {
