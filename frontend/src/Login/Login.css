@@ -30,5 +30,9 @@
 
 #telegram-login-UNOgBot{
     max-width: 238px;
+}
+
+.tgme_widget_login_button{
     overflow: hidden;
+    text-overflow: clip;
 }
