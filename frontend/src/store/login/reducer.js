@@ -3,10 +3,12 @@ import * as types from './actionTypes';
 
 
 const initialState = Immutable({
-    Logged: false
+    Logged: false,
+    User: undefined
 });
 
 export default function reduce(state = initialState, action = {}) {
+    console.log(action);
     switch (action.type) {
         case types.LOGGED_IN:
             return state.merge({
