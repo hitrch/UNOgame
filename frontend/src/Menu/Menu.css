@@ -1,0 +1,13 @@
+#game{
+    height: 100%;
+}
+
+#header{
+    height: 6%;
+    text-align: center;
+}
+
+#lobby{
+    height: 94%;
+    width:100%;
+}

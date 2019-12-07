@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Login from './Login/Login'
-import Game from './Game/Game'
+import Game from './Menu/Menu'
 import * as loginSelectors from './store/login/reducer';
 import { connect } from 'react-redux';
 
@@ -10,8 +10,8 @@ class App extends Component {
         const App = () => (
             <div id = {'app'}>
                 {!this.props.isLogin ?
-                    <Login/> :
-                    <Game/>
+                    //<Login/> :
+                    <Game/>:<div></div>
                 }
             </div>
         );
