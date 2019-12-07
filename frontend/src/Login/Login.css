@@ -20,7 +20,7 @@
     margin-left: auto;
     margin-right: auto;
     background: dimgray;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 #login{
