@@ -10,8 +10,8 @@ class App extends Component {
         const App = () => (
             <div id = {'app'}>
                 {!this.props.isLogin ?
-                    //<Login/> :
-                    <Game/>:<div></div>
+                    <Login/> :
+                    <Game/>
                 }
             </div>
         );
