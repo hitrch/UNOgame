@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 class App extends Component {
     render() {
         const App = () => (
-            <div id = {'root'}>
+            <div id = {'app'}>
                 {!this.props.isLogin ?
                     <Login/> :
                     <Game/>

@@ -27,17 +27,16 @@ class Login extends Component {
 
     render() {
         return(
-            <div id = {'header'}>
-                <div id = "greetings">Welcome to UNOgame</div>
-                <div id = "telegramButton" />
+            <div id = {'login'}>
+                <div id = {'app'}>
+                    <div id = {'form'}>
+                        <div id = "greetings">Welcome to UNOgame</div>
+                        <div id = "telegramButton" />
+                    </div>
+                </div>
             </div>
         );
     }
 }
 
-function mapStateToProps(state) {
-    return {
-    };
-}
-
-export default connect(mapStateToProps)(Login);
+export default connect()(Login);
