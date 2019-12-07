@@ -8,12 +8,14 @@ const initialState = Immutable({
 });
 
 export default function reduce(state = initialState, action = {}) {
-    console.log(action);
+
     switch (action.type) {
-        case types.LOGGED_IN:
+        case types.LOGGED_IN: {
+            console.log(action);
             return state.merge({
-                Logged : true
+                Logged: true
             });
+        }
         default:
             return state;
     }
