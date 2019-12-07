@@ -16,7 +16,7 @@ class Game extends Component {
         const Body = () => (
             <div id = {'game'}>
                 <div id = {'header'}>
-                    Greetings treveler: {this.props.userInfo}
+                    Greetings treveler  {this.props.userInfo}
                 </div>
                 <div id = {'lobby'}>
                     <div id = {'list'}>
@@ -36,7 +36,7 @@ class Game extends Component {
 
 function mapStateToProps(state) {
     return{
-        userInfo: loginSelectors.getUser(state).first_name
+        userInfo: loginSelectors.getUser(state)
     };
 }
 
