@@ -21,13 +21,10 @@
     margin-right: auto;
     background: dimgray;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: clip;
 }
 
 #login{
     padding-top: 15%;
 }
 
-#telegram-login-UNOgBot{
-    max-width: 238px;
-}
