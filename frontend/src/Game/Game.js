@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import List from '../List/List';
 import Chat from '../Chat/Chat';
-import './Game.css'
+import './Game.css';
+import * as loginSelectors from '../store/login/reducer';
+import { connect } from 'react-redux';
 
 
 class Game extends Component {
@@ -12,12 +14,17 @@ class Game extends Component {
 
     render() {
         const Body = () => (
-            <div id = {'lobby'}>
-                <div id = {'list'}>
-                    <List/>
+            <div id = {'game'}>
+                <div id = {'header'}>
+                    Greetings treveler: {this.props.userInfo}
                 </div>
-                <div id = {'chat'}>
-                    <Chat/>
+                <div id = {'lobby'}>
+                    <div id = {'list'}>
+                        <List/>
+                    </div>
+                    <div id = {'chat'}>
+                        <Chat/>
+                    </div>
                 </div>
             </div>
         );
@@ -27,4 +34,10 @@ class Game extends Component {
     }
 }
 
-export default Game;
+function mapStateToProps(state) {
+    return{
+        userInfo: loginSelectors.getUser(state)
+    };
+}
+
+export default connect(mapStateToProps)(Game);

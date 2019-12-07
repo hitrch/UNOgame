@@ -27,3 +27,7 @@ export default function reduce(state = initialState, action = {}) {
 export  function isLogged(state) {
     return state.login.Logged;
 }
+
+export function getUser(state) {
+    return state.login.User;
+}
