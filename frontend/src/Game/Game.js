@@ -36,7 +36,7 @@ class Game extends Component {
 
 function mapStateToProps(state) {
     return{
-        userInfo: loginSelectors.getUser(state).first_name
+        userInfo: loginSelectors.getUser(state)
     };
 }
 
