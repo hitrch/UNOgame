@@ -20,7 +20,7 @@
     margin-left: auto;
     margin-right: auto;
     background: dimgray;
-    word-wrap:break-word;
+    text-overflow: ellipsis;
 }
 
 #login{
