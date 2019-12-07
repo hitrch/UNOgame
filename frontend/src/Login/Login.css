@@ -27,3 +27,7 @@
 #login{
     padding-top: 15%;
 }
+
+.btn.tgme_widget_login_button{
+    height: 70px;
+}
