@@ -30,7 +30,9 @@ class Login extends Component {
                 <div id = {'app'}>
                     <div id = {'form'}>
                         <div id = "greetings">Welcome to UNOgame</div>
-                        <div id = "telegramButton" />
+                        <div id = {'trap'}>
+                            <div id = "telegramButton" />
+                        </div>
                     </div>
                 </div>
             </div>
