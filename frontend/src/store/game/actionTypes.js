@@ -1,1 +1,1 @@
-export const GAME_CHOSEN = 'topics'
+

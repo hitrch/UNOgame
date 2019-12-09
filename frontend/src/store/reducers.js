@@ -1,7 +1,9 @@
 import game from './game/reducer';
 import login from './login/reducer';
+import menu from './menu/reducer'
 
 export {
-    game,
-    login
+    login,
+    menu,
+    game
 };
