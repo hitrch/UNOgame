@@ -377,3 +377,6 @@ const cards = [{
         quantity: 2
     }
 ]
+
+  
+module.exports = cards;
