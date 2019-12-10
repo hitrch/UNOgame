@@ -38,9 +38,10 @@ class Player {
     remove_card(card)
     {
         const i = this.cards.findIndex(
-            c => c.content === card.content && c.type === card.type,
+            c => c.content == card.content && c.type == card.type,
           );
-          return this.cards.splice(i, 1);
+          console.log('Deleted:',i,this.cards);
+          return this.cards.splice(i, 1)[0];
     }
     repr() {
         return {
@@ -91,11 +92,13 @@ class Game {
         if(this.players.length > 10) throw new Error('Full room!');
         let player = new Player(dict);      //check 
         this.players.push(player);
+        return player.repr();
     }
     remove_player(dict)
     {
-       this.players = this.players.filter(player=>player.id!=dict.id);
+       let i = this.players.findIndex(player=>player.id ==dict.id);
        this.now--;
+       return this.players.splice(i,1);
     }
     next(turns = 1) {
         const turn = this.now + turns * this.turn
@@ -135,7 +138,7 @@ class Game {
         }
         else if (this.cards.length > count)
         {
-            for(let i = 0; i< count -1; i++)
+            for(let i = 0; i< count; i++)
             {
                 some_cards.push(...this.cards.splice(this.getRandomInt(0,this.cards.length-1),1))
             }
@@ -144,8 +147,10 @@ class Game {
     }
     drop(card)
     {
-        this.used_cards.push(this.last_card);
+        this.used_cards.push(new Card(Object.assign({},this.last_card)));
+        console.log('Dropped card: ', this.last_card);
         this.last_card = card;            //need check
+        console.log('New card:',this.last_card);
     }
     get_start_cards() 
     {
@@ -168,25 +173,27 @@ class Game {
             player.cards = this.get_start_cards();
         });
         this.players = this.shuffle(this.players);
-        // this.now = this.getRandomInt(0, this.players.length-1);
+        this.now = this.getRandomInt(0, this.players.length-1);
         this.last_card = this.cards.splice(this.getRandomInt(0,this.cards.length-1),1)[0];
-        return {'start': true, 'possible_cards': this.end_turn()};
+        return this;
     }
     add_possible()
     {
        this.possible_cards = [];
        let content = this.last_card.is_special() ? this.last_card.content : 'simple';
        let poss_cards = possibilities[content](this.last_card);
-       
-           for(let card in this.now_player().cards)
+       let cards = this.now_player().cards;
+           outer: for(let card of cards)
            {
-            for (let poss in poss_cards)
+            inner: for (let poss in poss_cards)
             {
+              let pos = true;
               for(let key in poss_cards[poss])
               {
-                 if(!card[key] == poss_cards[poss][key]) break;
+                 if(card[key] != poss_cards[poss][key]) continue inner;
               }
               this.possible_cards.push(card);
+              continue outer;
            }
            }
     }
@@ -196,60 +203,66 @@ class Game {
         return this.possible_cards.findIndex(card=> card.content == poss_card.content && card.type == poss_card.type) == -1 ? false :true;
     }
 
-    check_results(result)
+    check_winner()
     {   
+        let res = {};
            if(this.no_cards())
            {
             let status_exit = this.winner == 1 ? 'finished' : 'winner';
-            result[status_exit] = this.now_player().player.repr();
+            res[status_exit] =this.now_player().player.repr();
             this.remove_player(now_player());
             this.winner = 1;
            } 
+           return res;
     }
-    check_over(result, callback)
+    check_over()
     {
+        let res = {};
         if(this.is_over()) 
         {
-            result['loser'] = this.players[0].repr();
+            res.loser = this.players[0].repr();
         }
-        else callback();
+        return res;
     }
     put_card(dict)
     {
        let card = new Card(dict);
+       console.log('Put card:', card);
        let content = card.is_special() ? card.content : 'simple';
-       if(check_possible(card))
+       if(this.check_possible(card))
        {
-           let return_object = {};
-           this.ability = abilities[content](this,card); //!
+           this.ability = abilities[content](this); //!
            this.drop(this.now_player().remove_card(card));
-           this.check_win(return_object);
-           this.check_over(return_object, ()=>
-           {
-            return_object.possible_cards = this.end_turn();
-           });
-           return return_object;
+           return this.end_turn();
        }
        else throw new Error('Put away your card!');
-
-        
     }
     check_honest(check_honest = false)
     {
-        this.ability = this.ability(check_honest);
-        return this.end_turn();
+        let result = {};
+        this.ability = this.ability(this,check_honest, result);
+        return Object.assign({},this.end_turn(), result);
+    }
+    set_color(color)
+    {
+        this.last_card.color = color;
     }
     end_turn()
+    {   if(!((this.last_card.content == 'four' || this.last_card.content == 'color') && !this.last_card.color))
     {
         this.next();
         this.add_possible();
-        return this.possible_cards;  //!
+        return {game: this, change_color: true};
+    }
+        let return_object = Object.assign({}, this.check_over(), this.check_winner(), {game: this.repr()});
+        return return_object;
     }
     pass()
     {
+        let return_object = {};
         let call = this.ability || abilities['draw_one'];
         this.ability = call(this);
-        return this.end_turn();
+        return return_object;
     }
     is_over()
     {
