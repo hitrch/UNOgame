@@ -4,13 +4,25 @@ const abilities =
     {
        return (game, honest_check = false, result)=>
        {
+          
               if (honest_check) 
               {
-                 for(let card in game.players[game.now - game.turn])
+               let prev;
+               let turn = game.now - game.turn
+               if (turn < 0) {
+                   prev = game.players.length + turn
+               } else if (turn >= game.players.length){
+                   prev = turn - game.players.length
+               } else {
+                   prev = turn
+               }
+                 for(let card in game.players[prev])
                  {
-                     if(card.type = game.last_card.color)
+                     if(card.type == game.last_card.color)
                      {
-                        game.players[game.now - game.turn].cards =  game.players[game.now - game.turn].cards.concat(game.get_some_cards(4));
+                        game.players[prev].cards = game.players[prev].cards.concat(game.get_some_cards(4));
+                        game.players[prev].cards.push(Object.assign({},game.last_card));
+                        game.last_card = game.used_cards.splice(game.used_cards.length-1,1)[0];
                         result.bluffed = true;
                         break;
                      }

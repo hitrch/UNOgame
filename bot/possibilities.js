@@ -22,6 +22,10 @@ const possibilities = {
     'simple': (card)=>
     {
         return [{'content': card.content}, {'type': card.type}];
+    },
+    'any': (card)=>
+    {
+        return [{type: card.color || card.type}];
     }
 
 }

@@ -102,13 +102,16 @@ class Game {
     }
     next(turns = 1) {
         const turn = this.now + turns * this.turn
+        console.log('TUrn',turn);
         if (turn < 0) {
             this.now = this.players.length + turn
         } else if (turn >= this.players.length){
             this.now = turn - this.players.length
         } else {
+            console.log('Here now');
             this.now = turn
         }
+        console.log('Now', this.now);
     }
 
     shuffle(array) {
@@ -175,10 +178,11 @@ class Game {
         this.players = this.shuffle(this.players);
         this.now = this.getRandomInt(0, this.players.length-1);
         this.last_card = this.cards.splice(this.getRandomInt(0,this.cards.length-1),1)[0];
-        return this;
+        return this.end_turn();
     }
     add_possible()
     {
+        console.log('Added possible');
        this.possible_cards = [];
        let content = this.last_card.is_special() ? this.last_card.content : 'simple';
        let poss_cards = possibilities[content](this.last_card);
@@ -240,29 +244,32 @@ class Game {
     check_honest(check_honest = false)
     {
         let result = {};
+        console.log(this.ability);
         this.ability = this.ability(this,check_honest, result);
         return Object.assign({},this.end_turn(), result);
     }
     set_color(color)
     {
         this.last_card.color = color;
+        return Object.assign({},{changed_color: color},this.end_turn());
     }
     end_turn()
-    {   if(!((this.last_card.content == 'four' || this.last_card.content == 'color') && !this.last_card.color))
+    {   if((this.last_card.content == 'four' || this.last_card.content == 'color') && !this.last_card.color)
     {
-        this.next();
-        this.add_possible();
+        console.log('Not added possible');
         return {game: this, change_color: true};
     }
+    console.log('Here');
+        this.next();
+        this.add_possible();
         let return_object = Object.assign({}, this.check_over(), this.check_winner(), {game: this.repr()});
         return return_object;
     }
     pass()
     {
-        let return_object = {};
         let call = this.ability || abilities['draw_one'];
         this.ability = call(this);
-        return return_object;
+        return this.end_turn();
     }
     is_over()
     {
